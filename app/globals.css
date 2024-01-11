@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 
 body {
 	@apply text-white m-8;
@@ -13,13 +18,224 @@ h2 {
 }
 
 .icon-hover {
-	transition: 0.5s;
+	@apply transition-all;
 }
 
 .icon-hover:hover {
-	@apply text-white scale-125 cursor-pointer
+	@apply text-white scale-125 cursor-pointer;
 }
 
 .icon-hover:active {
-	@apply scale-100
+	@apply scale-100;
 }
+
+.btn {
+	@apply p-1 rounded-lg font-semibold transition-all;
+}
+
+.btn:hover {
+	@apply bg-secondary/80;
+}
+
+.btn-primary {
+	@apply text-primary bg-secondary;
+}
+
+form {
+	@apply flex flex-col text-center gap-5 rounded-xl py-4 w-4/5 mx-auto items-center;
+}
+
+form input {
+	@apply rounded-xl p-2 w-9/12 placeholder:ps-2 bg-primary border-2 border-secondary;
+}
+
+form h1 {
+	font-size: 2.6rem;
+	@apply font-extrabold text-white w-full text-start mb-12;
+}
+
+form button {
+	@apply w-9/12;
+}
+
+.btn-loader {
+	width: 30px;
+	height: 30px;
+	border: 5px solid #101820;
+	border-bottom-color: transparent;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.transition-1s {
+	transition: 1s;
+}
+
+.zero {
+	height: 0;
+	width: 0;
+}
+
+.card {
+	width: 190px;
+	height: 260px;
+	transition: all 0.2s;
+	position: relative;
+	cursor: pointer;
+}
+
+.card.big {
+	width: 100%;
+	height: auto;
+}
+
+.card.medium {
+	max-width: 100%;
+	width: 50%;
+}
+
+.card-inner {
+	width: inherit;
+	height: inherit;
+	background: #1018200d;
+	box-shadow: 0 0 10px 5px #ffffff40;
+	backdrop-filter: blur(10px);
+	border-radius: 0.1rem;
+	border-top-left-radius: 2.5rem;
+	border-bottom-right-radius: 2.5rem;
+	transition: all 0.3s;
+}
+
+.card-inner.secondary {
+	box-shadow: 0 0 10px 5px #fee71540;
+}
+
+.card-inner.secondary:hover {
+	box-shadow: 0 0 15px 10px #fee71540;
+}
+
+.card-inner:hover {
+	box-shadow: 0 0 10px 5px #fee71540;
+}
+
+.card:hover {
+	transform: scale(1.01);
+}
+
+.card-inner .top {
+	display: flex;
+	height: 150px;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-inner .top img {
+	width: 140px;
+	height: 130px;
+}
+
+.card-inner .bottom {
+	display: grid;
+	place-items: center;
+	text-align: center;
+	width: 100%;
+	height: 110px;
+}
+
+.card-inner .bottom h1 {
+	width: 100%;
+	height: fit-content;
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 1.2rem;
+	color: white;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.card-inner .bottom p {
+	color: #fee715;
+	width: fit-content;
+	margin-top: 0.3rem;
+}
+
+.maxline-1 {
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	line-height: 2rem;
+}
+
+.navbar-shadow {
+	border-color: white;
+	box-shadow: 0px 0px 10px 5px #ffffff40;
+	transition: all 0.3s;
+}
+
+.navbar-shadow:hover {
+	border-color: #fee715;
+	box-shadow: 0px 0px 10px 5px #fee71540;
+}
+
+.card-list {
+	@apply grid gap-10 place-items-center h-auto w-full;
+}
+
+.card-list.one {
+	@apply grid-cols-1;
+}
+
+.card-list.two {
+	@apply grid-cols-2;
+}
+
+.card-list.three {
+	@apply grid-cols-3;
+}
+
+.card-list.four {
+	@apply grid-cols-4;
+}
+
+.card-list.five {
+	@apply grid-cols-5;
+}
+
+.circle {
+	width: 25px;
+	height: 25px;
+	padding: 10px;
+	background-color: transparent;
+	border: 1.5px solid rgb(141, 141, 141);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.circle:hover {
+	cursor: pointer;
+}
+
+.inner-circle {
+	width: 15px;
+	height: 15px;
+	padding: 6.5px;
+	border: 3px solid #101820;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+

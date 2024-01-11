@@ -1,45 +1,42 @@
 'use client';
-import {
-	ShoppingCartOutlined as CartIcon,
-	FavoriteBorderOutlined as FavoriteIcon,
-	PersonOutline as UserIcon,
-	DiamondRounded as DiamondIcon,
-	Search as SearchIcon,
-} from '@mui/icons-material';
 import ProductsDropDown from './ProductsDropDown';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { motion } from 'framer-motion';
+import { fadeInUp } from '@/lib/framerTransitions';
+import { Image } from '@nextui-org/react';
+import UserDropDown from './UserDropDown';
+import SearchModal from './SearchComponent';
 
-export default async function Navbar() {
+
+export default function Navbar() {
+	const router = useRouter();
+	const { data: session } = useSession();
+
 	return (
-		<nav className='flex items-center w-full hover:border-secondary hover:shadow-secondary border-2 border-white rounded-2xl px-2 shadow-white shadow-lg mb-5 transition-all'>
-			<div className='flex gap-2 justify-start items-center ps-2 w-1/3'>
-				<ProductsDropDown />
-				<SearchIcon
-					style={{ fontSize: '2rem' }}
-					className='text-white icon-hover'
-				/>
-			</div>
-			<div className='flex justify-center w-1/3 items-center text-xl select-none'>
-				<p>Diamond</p>
-				<DiamondIcon
-					style={{ fontSize: '4rem' }}
-					className='text-secondary hover:text-white transition hover:cursor-pointer'
-				/>
-				<p>Shop</p>
-			</div>
-			<div className='flex justify-end w-1/3 gap-2 pe-2'>
-				<FavoriteIcon
-					style={{ fontSize: '2rem' }}
-					className='text-white icon-hover'
-				/>
-				<UserIcon
-					style={{ fontSize: '2rem' }}
-					className='text-white icon-hover'
-				/>
-				<CartIcon
-					style={{ fontSize: '2rem' }}
-					className='text-white icon-hover'
-				/>
-			</div>
-		</nav>
+		<>
+			<motion.div initial='initial' animate='animate' variants={fadeInUp}>
+				<nav className='flex items-center navbar-shadow w-full border-1.5 rounded-2xl px-2 shadow-lg mb-6'>
+					<div className='flex gap-2 justify-start items-center ps-2 w-1/3'>
+						<ProductsDropDown />
+						<SearchModal />
+					</div>
+					<div className='flex gap-2 justify-center w-1/3 items-center text-xl select-none'>
+						<p>Diamond</p>
+						<Image
+							onClick={(e) => router.push('/')}
+							width={65}
+							src='/icon.png'
+							className='py-1 cursor-pointer'
+						/>
+						<p>Shop</p>
+					</div>
+					<div className='flex justify-end items-center w-1/3 gap-2 pe-2'>
+						{session?.user?.name}
+						<UserDropDown />
+					</div>
+				</nav>
+			</motion.div>
+		</>
 	);
 }

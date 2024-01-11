@@ -1,0 +1,637 @@
+{
+	"products": [
+		{
+			"id": 1,
+			"name": "Apple iPhone 13 CH",
+			"image": "/phone/Apple_iPhone_13_CH.png",
+			"price": 699,
+			"brand": "Apple",
+			"model": "iPhone 13",
+			"category": "Phone",
+			"send": 1,
+			"new": false,
+			"off": 0,
+			"colors": ["#2D7F5E", "#D3E17D", "#D32F2F", "#5AAADE"]
+		},
+		{
+			"id": 2,
+			"name": "Apple iPhone 13 Pro LLA",
+			"image": "/phone/Apple_iPhone_13_Pro_LLA.png",
+			"price": 2499,
+			"brand": "Apple",
+			"model": "iPhone 13 Pro",
+			"category": "Phone",
+			"send": 0,
+			"new": false,
+			"off": 0,
+			"colors": ["#8F4780", "#1E7C7A", "#A89778"]
+		},
+		{
+			"id": 3,
+			"name": "Apple iPhone 13 Pro Max LLA",
+			"image": "/phone/Apple_iPhone_13_Pro_Max_LLA.png",
+			"price": 2999,
+			"brand": "Apple",
+			"model": "iPhone 13 Pro Max",
+			"category": "Phone",
+			"send": 2,
+			"new": true,
+			"off": 0,
+			"colors": ["#E2DFA4", "#80191D", "#7A98AF", "#44C084", "#ECB61E"]
+		},
+		{
+			"id": 4,
+			"name": "Nothing Phone 1",
+			"image": "/phone/Nothing_Phone_1.png",
+			"price": 299,
+			"brand": "Nothing",
+			"model": "Phone 1",
+			"category": "Phone",
+			"send": 3,
+			"new": false,
+			"off": 0,
+			"colors": ["#EF697A", "#46A56A", "#AF7F30"]
+		},
+		{
+			"id": 5,
+			"name": "Nothing Phone 2",
+			"image": "/phone/Nothing_Phone_2.png",
+			"price": 499,
+			"brand": "Nothing",
+			"model": "Phone 2",
+			"category": "Phone",
+			"send": 1,
+			"new": true,
+			"off": 0,
+			"colors": ["#2C438C", "#50A1A7", "#F66A48", "#C4A745", "#7E0EAA"]
+		},
+		{
+			"id": 6,
+			"name": "Samsung Galaxy Watch 5 44mm",
+			"image": "/watch/Samsung_Galaxy_Watch_5_44mm.png",
+			"price": 99,
+			"brand": "Samsung",
+			"model": "Galaxy Watch 5",
+			"category": "Watch",
+			"send": 0,
+			"new": false,
+			"off": 0,
+			"colors": ["#E26626", "#207C36"]
+		},
+		{
+			"id": 7,
+			"name": "Samsung Galaxy Watch 6 Classic 47mm",
+			"image": "/watch/Samsung_Galaxy_Watch_6_Classic_47mm.png",
+			"price": 199,
+			"brand": "Samsung",
+			"model": "Galaxy Watch 6 Classic",
+			"category": "Watch",
+			"send": 1,
+			"new": true,
+			"off": 0,
+			"colors": ["#7464E9", "#D246D2", "#1F53F4"]
+		},
+		{
+			"id": 8,
+			"name": "Apple Series 8 Aluminum 45mm",
+			"image": "/watch/Apple_Series_8_Aluminum_45mm.png",
+			"price": 799,
+			"brand": "Apple",
+			"model": "Series 8 Aluminum",
+			"category": "Watch",
+			"send": 3,
+			"new": false,
+			"off": 0,
+			"colors": ["#0A140D", "#CD3C4F", "#4B7684", "#F3F6E4"]
+		},
+		{
+			"id": 9,
+			"name": "Apple Series 9 Aluminum 45mm sport loop",
+			"image": "/watch/Apple_Series_9_Aluminum_45mm_sport_loop.png",
+			"price": 999,
+			"brand": "Apple",
+			"model": "Series 9 Aluminum",
+			"category": "Watch",
+			"send": 1,
+			"new": true,
+			"off": 0,
+			"colors": ["#2F2C41", "#1E2F49", "#DAA520", "#72B01D"]
+		},
+		{
+			"id": 10,
+			"name": "Apple MacBook Pro MNWE3 2023",
+			"image": "/laptop/Apple_MacBook_Pro_MNWE3_2023.png",
+			"price": 2399,
+			"brand": "Apple",
+			"model": "Pro MNWE3 2023",
+			"category": "Laptop",
+			"send": 4,
+			"new": true,
+			"off": 0,
+			"colors": ["#F8DB80", "#2E6E7F", "#A11A9D"]
+		},
+		{
+			"id": 11,
+			"name": "Microsoft Surface Studio-i7 32GB 1SSD RTXA2000 W11",
+			"image": "/laptop/Microsoft_Surface_Studio_i7_32GB_1SSD_RTXA2000_W11.png",
+			"price": 1999,
+			"brand": "Microsoft",
+			"model": "Surface Studio",
+			"category": "Laptop",
+			"send": 6,
+			"new": false,
+			"off": 30,
+			"colors": ["#C5A6A6", "#2EADFF", "#E55E3C"]
+		},
+		{
+			"id": 12,
+			"name": "Msi Raider GE67 HX 12UHS",
+			"image": "/laptop/Msi_Raider_GE67_HX_12UHS.png",
+			"price": 1599,
+			"brand": "Msi",
+			"model": "Raider GE67 HX 12UHS",
+			"category": "Laptop",
+			"send": 2,
+			"new": false,
+			"off": 0,
+			"colors": [
+				"#F56545",
+				"#2F2D33",
+				"#68A7A9",
+				"#D8E29B",
+				"#958E8E",
+				"#D5A890"
+			]
+		},
+		{
+			"id": 13,
+			"name": "Msi Titan GT77 12UGS",
+			"image": "/laptop/Msi_Titan_GT77_12UGS.png",
+			"price": 4999,
+			"brand": "Msi",
+			"model": "Titan GT77 12UGS",
+			"category": "Laptop",
+			"send": 12,
+			"new": false,
+			"off": 0,
+			"colors": ["#72C7B1", "#E3A21A", "#5259D8", "#CE3E70", "#669A3E"]
+		}
+	],
+	"comments": [
+		{
+			"productID": 8,
+			"username": "Isabella Rodriguez",
+			"comment": "The quality of the product from Diamond Shop is exceptional!"
+		},
+		{
+			"productID": 4,
+			"username": "Oliver Anderson",
+			"comment": "I'm so impressed with the speedy delivery from Diamond Shop."
+		},
+		{
+			"productID": 10,
+			"username": "Sophia Parker",
+			"comment": "A flawless shopping experience with Diamond Shop!"
+		},
+		{
+			"productID": 1,
+			"username": "Mason Bennett",
+			"comment": "The customer service at Diamond Shop is top-notch."
+		},
+		{
+			"productID": 12,
+			"username": "Ava Nelson",
+			"comment": "I feel like a VIP every time I shop at Diamond Shop."
+		},
+		{
+			"productID": 3,
+			"username": "Logan Thompson",
+			"comment": "The product exceeded my expectations, thank you, Diamond Shop!"
+		},
+		{
+			"productID": 7,
+			"username": "Mia Hayes",
+			"comment": "Diamond Shop never fails to deliver perfection."
+		},
+		{
+			"productID": 9,
+			"username": "Lucas Foster",
+			"comment": "I'm a loyal customer because of the consistently great products from Diamond Shop."
+		},
+		{
+			"productID": 2,
+			"username": "Amelia Bryant",
+			"comment": "The packaging from Diamond Shop is elegant and secure."
+		},
+		{
+			"productID": 6,
+			"username": "Ethan Wright",
+			"comment": "Diamond Shop's attention to detail is remarkable."
+		},
+		{
+			"productID": 11,
+			"username": "Harper Campbell",
+			"comment": "I can't get enough of the amazing deals at Diamond Shop."
+		},
+		{
+			"productID": 13,
+			"username": "Aiden Simmons",
+			"comment": "The variety of products at Diamond Shop is outstanding."
+		},
+		{
+			"productID": 5,
+			"username": "Abigail Mitchell",
+			"comment": "Diamond Shop's website is user-friendly and easy to navigate."
+		},
+		{
+			"productID": 3,
+			"username": "Jackson Cooper",
+			"comment": "The product from Diamond Shop arrived in perfect condition."
+		},
+		{
+			"productID": 9,
+			"username": "Ella Griffin",
+			"comment": "Diamond Shop offers the best value for my money."
+		},
+		{
+			"productID": 6,
+			"username": "Caden Russell",
+			"comment": "The shopping process at Diamond Shop is smooth and hassle-free."
+		},
+		{
+			"productID": 11,
+			"username": "Scarlett Foster",
+			"comment": "Diamond Shop's commitment to quality is unmatched."
+		},
+		{
+			"productID": 13,
+			"username": "Noah Myers",
+			"comment": "I'm always recommending Diamond Shop to my friends and family."
+		},
+		{
+			"productID": 10,
+			"username": "Addison Turner",
+			"comment": "The product from Diamond Shop is exactly as described."
+		},
+		{
+			"productID": 2,
+			"username": "Liam Porter",
+			"comment": "Diamond Shop's loyalty program is a fantastic bonus."
+		},
+		{
+			"productID": 1,
+			"username": "Zoe Henderson",
+			"comment": "I love the discounts and promotions offered by Diamond Shop."
+		},
+		{
+			"productID": 8,
+			"username": "Wyatt Brooks",
+			"comment": "The customer reviews on Diamond Shop helped me make an informed decision."
+		},
+		{
+			"productID": 12,
+			"username": "Lily Murphy",
+			"comment": "The after-sales support from Diamond Shop is fantastic."
+		},
+		{
+			"productID": 4,
+			"username": "Owen Taylor",
+			"comment": "Diamond Shop provides excellent communication throughout the purchasing process."
+		},
+		{
+			"productID": 10,
+			"username": "Chloe Jenkins",
+			"comment": "I trust Diamond Shop for all my online shopping needs."
+		},
+		{
+			"productID": 6,
+			"username": "Caleb Armstrong",
+			"comment": "The product from Diamond Shop is a game-changer."
+		},
+		{
+			"productID": 7,
+			"username": "Grace Lawson",
+			"comment": "Diamond Shop's packaging is eco-friendly and stylish."
+		},
+		{
+			"productID": 2,
+			"username": "Eli Bennett",
+			"comment": "I appreciate the wide range of sizes available at Diamond Shop."
+		},
+		{
+			"productID": 12,
+			"username": "Aria Evans",
+			"comment": "Diamond Shop offers a secure and reliable payment system."
+		},
+		{
+			"productID": 4,
+			"username": "Carter Simmons",
+			"comment": "The discounts during the holiday season at Diamond Shop are unbeatable."
+		},
+		{
+			"productID": 7,
+			"username": "Riley Watson",
+			"comment": "Diamond Shop's return policy is fair and straightforward."
+		},
+		{
+			"productID": 6,
+			"username": "Layla Perry",
+			"comment": "The product from Diamond Shop is a perfect fit for my needs."
+		},
+		{
+			"productID": 2,
+			"username": "Grayson Turner",
+			"comment": "I'm a proud repeat customer of Diamond Shop."
+		},
+		{
+			"productID": 9,
+			"username": "Aubrey Williams",
+			"comment": "Diamond Shop's dedication to customer satisfaction is evident."
+		},
+		{
+			"productID": 2,
+			"username": "Jack Parker",
+			"comment": "I received compliments on the product from Diamond Shop."
+		},
+		{
+			"productID": 10,
+			"username": "Sofia Davis",
+			"comment": "Diamond Shop's website design is modern and aesthetically pleasing."
+		},
+		{
+			"productID": 8,
+			"username": "Levi Sullivan",
+			"comment": "The product from Diamond Shop is a great addition to my collection."
+		},
+		{
+			"productID": 7,
+			"username": "Avery Murphy",
+			"comment": "Diamond Shop's packaging adds a touch of luxury to my purchase."
+		},
+		{
+			"productID": 6,
+			"username": "Elijah Adams",
+			"comment": "I appreciate the informative product descriptions on Diamond Shop's website."
+		},
+		{
+			"productID": 11,
+			"username": "Zoey Foster",
+			"comment": "The discounts and promotions from Diamond Shop make shopping exciting."
+		},
+		{
+			"productID": 13,
+			"username": "Lincoln Mitchell",
+			"comment": "The customer testimonials on Diamond Shop inspired confidence in my purchase."
+		},
+		{
+			"productID": 5,
+			"username": "Penelope Turner",
+			"comment": "Diamond Shop's commitment to sustainability is commendable."
+		},
+		{
+			"productID": 3,
+			"username": "Sebastian Bryant",
+			"comment": "I've never been disappointed with a purchase from Diamond Shop."
+		},
+		{
+			"productID": 9,
+			"username": "Victoria Henderson",
+			"comment": "The quick response from Diamond Shop's customer service team is impressive."
+		},
+		{
+			"productID": 10,
+			"username": "Hunter Campbell",
+			"comment": "I enjoy exploring the unique products available at Diamond Shop."
+		},
+		{
+			"productID": 4,
+			"username": "Natalie Perry",
+			"comment": "The shipping from Diamond Shop is consistently fast."
+		},
+		{
+			"productID": 10,
+			"username": "Matthew Brooks",
+			"comment": "Diamond Shop's product range caters to a variety of tastes."
+		},
+		{
+			"productID": 7,
+			"username": "Lillian Cooper",
+			"comment": "The product from Diamond Shop is a great value for the price."
+		},
+		{
+			"productID": 11,
+			"username": "Julian Lawson",
+			"comment": "I appreciate the regular updates on my order status from Diamond Shop."
+		},
+		{
+			"productID": 13,
+			"username": "Brooklyn Jenkins",
+			"comment": "Diamond Shop makes online shopping a delightful experience."
+		},
+		{
+			"productID": 9,
+			"username": "Daniel Wright",
+			"comment": "The product from Diamond Shop is a true gem."
+		},
+		{
+			"productID": 5,
+			"username": "Aurora Armstrong",
+			"comment": "Diamond Shop's website is secure, and I feel confident making purchases."
+		},
+		{
+			"productID": 3,
+			"username": "Christopher Turner",
+			"comment": "The product from Diamond Shop is a must-have for anyone."
+		},
+		{
+			"productID": 11,
+			"username": "Hazel Watson",
+			"comment": "I love the attention to detail in Diamond Shop's packaging."
+		},
+		{
+			"productID": 13,
+			"username": "Andrew Nelson",
+			"comment": "Diamond Shop's commitment to quality sets them apart."
+		},
+		{
+			"productID": 5,
+			"username": "Stella Russell",
+			"comment": "The personalized touch in Diamond Shop's customer service is appreciated."
+		},
+		{
+			"productID": 2,
+			"username": "Cameron Taylor",
+			"comment": "I'm always excited to see what's new at Diamond Shop."
+		},
+		{
+			"productID": 6,
+			"username": "Scarlett Griffin",
+			"comment": "Diamond Shop offers a great selection of products for all occasions."
+		},
+		{
+			"productID": 4,
+			"username": "Grayson Adams",
+			"comment": "The checkout process at Diamond Shop is quick and efficient."
+		},
+		{
+			"productID": 10,
+			"username": "Savannah Evans",
+			"comment": "The product from Diamond Shop has become a staple in my routine."
+		},
+		{
+			"productID": 1,
+			"username": "Evan Myers",
+			"comment": "Diamond Shop's commitment to customer feedback is evident."
+		},
+		{
+			"productID": 5,
+			"username": "Paisley Bennett",
+			"comment": "The product from Diamond Shop arrived earlier than expected."
+		},
+		{
+			"productID": 11,
+			"username": "Adam Simmons",
+			"comment": "The deals and discounts at Diamond Shop make shopping more enjoyable."
+		},
+		{
+			"productID": 7,
+			"username": "Violet Foster",
+			"comment": "I appreciate the secure and safe payment options at Diamond Shop."
+		},
+		{
+			"productID": 9,
+			"username": "Nolan Lawson",
+			"comment": "Diamond Shop's dedication to customer happiness shines through."
+		},
+		{
+			"productID": 2,
+			"username": "Autumn Campbell",
+			"comment": "The product from Diamond Shop is a fantastic investment."
+		},
+		{
+			"productID": 6,
+			"username": "Dominic Murphy",
+			"comment": "Diamond Shop's commitment to ethical sourcing is admirable."
+		},
+		{
+			"productID": 12,
+			"username": "Elena Porter",
+			"comment": "The user reviews on Diamond Shop helped me make a confident decision."
+		},
+		{
+			"productID": 8,
+			"username": "Isaac Henderson",
+			"comment": "I always find unique and stylish products at Diamond Shop."
+		},
+		{
+			"productID": 7,
+			"username": "Clara Brooks",
+			"comment": "Diamond Shop's website is intuitive, making the shopping process easy."
+		},
+		{
+			"productID": 1,
+			"username": "Tyler Turner",
+			"comment": "The after-sale services from Diamond Shop are reliable."
+		},
+		{
+			"productID": 13,
+			"username": "Naomi Perry",
+			"comment": "The product from Diamond Shop is a game-changer in its category."
+		},
+		{
+			"productID": 11,
+			"username": "Luke Armstrong",
+			"comment": "I appreciate Diamond Shop's commitment to customer privacy."
+		},
+		{
+			"productID": 2,
+			"username": "Peyton Williams",
+			"comment": "The variety of products available at Diamond Shop is impressive."
+		},
+		{
+			"productID": 12,
+			"username": "Benjamin Jenkins",
+			"comment": "Diamond Shop's packaging adds a touch of elegance to the product."
+		},
+		{
+			"productID": 4,
+			"username": "Hannah Wright",
+			"comment": "I trust Diamond Shop for high-quality and authentic products."
+		},
+		{
+			"productID": 10,
+			"username": "Gabriel Taylor",
+			"comment": "The detailed product information on Diamond Shop's website is helpful."
+		},
+		{
+			"productID": 8,
+			"username": "Ariana Cooper",
+			"comment": "Diamond Shop's customer service team is responsive and helpful."
+		},
+		{
+			"productID": 9,
+			"username": "Oliver Adams",
+			"comment": "I appreciate the seasonal sales and discounts at Diamond Shop."
+		},
+		{
+			"productID": 2,
+			"username": "Ava Foster",
+			"comment": "The product from Diamond Shop is a great addition to my lifestyle."
+		},
+		{
+			"productID": 6,
+			"username": "Dylan Griffin",
+			"comment": "Diamond Shop's commitment to customer satisfaction is evident."
+		},
+		{
+			"productID": 11,
+			"username": "Isla Campbell",
+			"comment": "The purchase from Diamond Shop was a wise investment."
+		},
+		{
+			"productID": 13,
+			"username": "Lincoln Sullivan",
+			"comment": "I always find something special when shopping at Diamond Shop."
+		},
+		{
+			"productID": 5,
+			"username": "Aria Lawson",
+			"comment": "Diamond Shop's commitment to eco-friendly practices is important to me."
+		},
+		{
+			"productID": 3,
+			"username": "Owen Mitchell",
+			"comment": "The product from Diamond Shop is a standout in terms of quality."
+		},
+		{
+			"productID": 11,
+			"username": "Scarlett Evans",
+			"comment": "Diamond Shop's website is secure, providing peace of mind during transactions."
+		},
+		{
+			"productID": 13,
+			"username": "Max Cooper",
+			"comment": "The customer testimonials on Diamond Shop's website helped me make a decision."
+		},
+		{
+			"productID": 5,
+			"username": "Madeline Perry",
+			"comment": "I appreciate the quick response from Diamond Shop's support team."
+		},
+		{
+			"productID": 7,
+			"username": "Samuel Bennett",
+			"comment": "The loyalty program at Diamond Shop is rewarding and beneficial."
+		},
+		{
+			"productID": 10,
+			"username": "Zoey Turner",
+			"comment": "The discounts and promotions from Diamond Shop are much appreciated."
+		},
+		{
+			"productID": 8,
+			"username": "Henry Brooks",
+			"comment": "Diamond Shop's commitment to sustainable and ethical practices is commendable."
+		}
+	]
+}

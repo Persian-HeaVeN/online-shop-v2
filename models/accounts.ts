@@ -2,7 +2,7 @@ import mongoose, { Schema, models } from 'mongoose';
 
 const accountSchema = new Schema(
 	{
-		username: {
+		name: {
 			type: String,
 			required: true,
 		},
@@ -14,23 +14,23 @@ const accountSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		role: {
-			type: String,
-			default: 'user',
-		},
 		cart: {
 			type: Array,
 			default: [],
 		},
 		favorites: {
 			type: Array,
-            default: [],
+			default: [],
 		},
 		authenticated: {
 			type: Boolean,
 			default: false,
 		},
 		personalinfo: {
+			type: Object,
+			default: {},
+		},
+		siteinfo: {
 			type: Object,
 			default: {},
 		},
