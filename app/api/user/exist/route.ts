@@ -16,6 +16,8 @@ export async function POST(req: NextRequest) {
 	}
 	const { email } = await req.json();
 
+	console.log(email);
+	
 	try {
 		const exist = await Account.findOne({ email });
 
