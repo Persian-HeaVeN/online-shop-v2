@@ -18,26 +18,39 @@ export async function GET(request: NextRequest) {
 			);
 		}
 
-        if (!params.get("id")) {
-            return NextResponse.json(
+		if (!params.get('id')) {
+			return NextResponse.json(
 				{ message: 'Invalid Product ID' },
 				{ status: 500 }
 			);
-        }
+		}
 
-		const dbPath = path.join(process.cwd(), 'data', 'db.json');
-		const datas = fs.readFileSync(dbPath);
-		const comments = JSON.parse(datas.toString()).comments;
+		const res = await fetch(
+			'https://projects-datas.onrender.com/online_shop_v2',
+			{
+				method: 'GET',
+				headers: {
+					'content-type': 'application/json',
+				},
+				next: {
+					revalidate: 60 * 60,
+				},
+			}
+		);
+
+		let comments = await res.json();
+
+		comments = comments.comments;
 
 		const filteredComments: any = [];
-        
-        const productID = params.get("id");
+
+		const productID = params.get('id');
 
 		comments.forEach((comment: any) => {
-            if (Number(comment.productID) === Number(productID)) {
-                filteredComments.push(comment)
-            }
-        });
+			if (Number(comment.productID) === Number(productID)) {
+				filteredComments.push(comment);
+			}
+		});
 
 		return NextResponse.json(filteredComments, { status: 201 });
 	} catch (error) {

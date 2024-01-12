@@ -4,7 +4,6 @@ import path from 'path';
 import { filterParams } from '@/lib/filterParams';
 import { connectMongoDB } from '@/lib/mongodb';
 
-
 export async function GET(request: NextRequest) {
 	try {
 		await connectMongoDB();
@@ -19,44 +18,61 @@ export async function GET(request: NextRequest) {
 				{ status: 500 }
 			);
 		}
-		const dbPath = path.join(process.cwd(), 'data', 'db.json');
-		const datas = fs.readFileSync(dbPath);
-		const products = JSON.parse(datas.toString()).products;
+
+		const res = await fetch(
+			'https://projects-datas.onrender.com/online_shop_v2',
+			{
+				method: 'GET',
+				headers: {
+					'content-type': 'application/json',
+				},
+				next: {
+					revalidate: 60 * 60,
+				},
+			}
+		);
+
+		let products = await res.json();
+
+		products = products.products
 
 		let filteredproducts: any = [];
 
-		products.forEach((product: any) => {
-			let match = true;
+		if (Object.keys(products).length > 0) {
+			products.forEach((product: any) => {
+				let match = true;
 
-			filterParams.forEach((filter: string) => {
-				if (filter === 'price') {
-					if (
-						params.get(filter) &&
-						Number(product[filter]) > params.get(filter)
-					) {
-						match = false;
+				filterParams.forEach((filter: string) => {
+					if (filter === 'price') {
+						if (
+							params.get(filter) &&
+							Number(product[filter]) > params.get(filter)
+						) {
+							match = false;
+						}
+					} else if (filter === 'off') {
+						if (
+							params.get(filter) &&
+							Number(product[filter]) === 0
+						) {
+							match = false;
+						}
+					} else {
+						if (
+							params.get(filter) &&
+							product[filter].toString().toLowerCase() !==
+								params.get(filter).toString().toLowerCase()
+						) {
+							match = false;
+						}
 					}
-				} else if (filter === 'off') {
-					if (
-						params.get(filter) &&
-						Number(product[filter]) === 0
-					) {
-						match = false;
-					}
-				} else {
-					if (
-						params.get(filter) &&
-						product[filter].toString().toLowerCase() !==
-							params.get(filter).toString().toLowerCase()
-					) {
-						match = false;
-					}
+				});
+				if (match === true) {
+					filteredproducts.push(product);
 				}
 			});
-			if (match === true) {
-				filteredproducts.push(product);
-			}
-		});
+		}
+
 		if (params.get('limit')) {
 			filteredproducts = filteredproducts.slice(
 				0,
