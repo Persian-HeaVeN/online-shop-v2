@@ -2,6 +2,7 @@
 
 import Account from '@/models/accounts';
 import { filterParams } from '@/lib/filterParams';
+import bycrypt from 'bcryptjs';
 import { connectMongoDB } from './mongodb';
 
 function parseQueryString(
@@ -66,7 +67,7 @@ export async function ServerRegister(
 	password: string,
 	email: string
 ) {
-	const res = await fetch(
+	/* const res = await fetch(
 		process.env.NEXTAUTH_URL +
 			'/api/user/create?apikey=' +
 			process.env.SITE_API_KEY,
@@ -84,14 +85,35 @@ export async function ServerRegister(
 				revalidate: 0,
 			},
 		}
-	);
+	); */
 
-	const data = await res.json();
+	await connectMongoDB();
 
-	if (res.ok) {
-		return { status: true };
-	} else {
-		return { status: false, message: data.message };
+	const hashedPassword = await bycrypt.hash(password, 10);
+
+	try {
+		const exist = await Account.findOne({ email: email });
+		if (exist) {
+			return { message: 'Email Already Exist', status: false };
+		}
+	} catch (error: any) {
+		return { message: error.message, status: false };
+	}
+
+	try {
+		const newAccount = await Account.create({
+			name,
+			password: hashedPassword,
+			email,
+		});
+
+		if (newAccount) {
+			return { message: 'Account Created Successfully', status: true };
+		} else {
+			return { message: 'An error Occurred when Creating Account', status: false };
+		}
+	} catch (error: any) {
+		return { message: error.message, status: false };
 	}
 }
 
