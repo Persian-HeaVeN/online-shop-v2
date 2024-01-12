@@ -1,3 +1,4 @@
+'use server'
 import EntryForm from '@/components/EntryForm';
 import { redirect } from 'next/navigation';
 import { connectMongoDB } from '@/lib/mongodb';
