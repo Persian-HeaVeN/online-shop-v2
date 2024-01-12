@@ -1,9 +1,10 @@
 'use server';
 
 import Account from '@/models/accounts';
+import { connectMongoDB } from './mongodb';
 
 export async function ServerExist(email: string) {
-	const res = await fetch(
+	/* const res = await fetch(
 		process.env.NEXTAUTH_URL +
 			'/api/user/exist?apikey=' +
 			process.env.SITE_API_KEY,
@@ -21,7 +22,21 @@ export async function ServerExist(email: string) {
 		}
 	);
 
-	return res.json();
+	return res.json(); */
+
+	await connectMongoDB();
+
+	try {
+		const exist = await Account.findOne({ email });
+
+		if (exist) {
+			return true;
+		} else {
+			return false;
+		}
+	} catch (error) {
+		return false;
+	}
 }
 
 export async function ServerRegister(
@@ -149,7 +164,11 @@ export async function getServerCartWithID(email: string, id: number) {
 						`id=${product.id}`,
 						true
 					);
-					return { ...theProduct, selectedColor: [product.color], count: product.count };
+					return {
+						...theProduct,
+						selectedColor: [product.color],
+						count: product.count,
+					};
 				}
 			})
 		);

@@ -134,7 +134,7 @@ export default function EntryForm() {
 				formData.email.toString().toLocaleLowerCase()
 			);
 
-			if (result.exist === true) {
+			if (result === true) {
 				setFormData({
 					...formData,
 					loading: false,
