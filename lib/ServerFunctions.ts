@@ -1,7 +1,29 @@
 'use server';
 
 import Account from '@/models/accounts';
+import { filterParams } from '@/lib/filterParams';
 import { connectMongoDB } from './mongodb';
+
+function parseQueryString(
+	query: string
+): Record<string, string | number | boolean> {
+	const result: Record<string, string | number | boolean> = {};
+
+	query.split('&').forEach((pair) => {
+		const [key, value] = pair.split('=');
+		if (value === 'true') {
+			result[key] = true;
+		} else if (value === 'false') {
+			result[key] = false;
+		} else if (!isNaN(Number(value))) {
+			result[key] = Number(value);
+		} else {
+			result[key] = value;
+		}
+	});
+
+	return result;
+}
 
 export async function ServerExist(email: string) {
 	/* const res = await fetch(
@@ -74,7 +96,7 @@ export async function ServerRegister(
 }
 
 export async function ServerProducts(filters: string, single = false) {
-	const res = await fetch(
+	/* const res = await fetch(
 		process.env.NEXTAUTH_URL +
 			'/api/products?apikey=' +
 			process.env.SITE_API_KEY +
@@ -89,14 +111,85 @@ export async function ServerProducts(filters: string, single = false) {
 				revalidate: 0,
 			},
 		}
-	);
-	let data = await res.json();
+	); */
 
-	if (data.length === 1 && single === true) {
-		return data[0];
+	try {
+		await connectMongoDB();
+
+		const res = await fetch(
+			'https://projects-datas.onrender.com/online_shop_v2',
+			{
+				method: 'GET',
+				headers: {
+					'content-type': 'application/json',
+				},
+				next: {
+					revalidate: 60 * 60,
+				},
+			}
+		);
+
+		let products = await res.json();
+
+		products = products.products;
+
+		let filteredproducts: any = [];
+
+		const filtersArray = parseQueryString(filters);
+
+		if (Object.keys(products).length > 0) {
+			products.forEach((product: any) => {
+				let match = true;
+
+				filterParams.forEach((filter: string) => {
+					if (filter === 'price') {
+						if (
+							filtersArray[filter] &&
+							Number(product[filter]) >
+								<number>filtersArray[filter]
+						) {
+							match = false;
+						}
+					} else if (filter === 'off') {
+						if (
+							filtersArray[filter] &&
+							Number(product[filter]) === 0
+						) {
+							match = false;
+						}
+					} else {
+						if (
+							filtersArray[filter] &&
+							product[filter].toString().toLowerCase() !==
+								filtersArray[filter].toString().toLowerCase()
+						) {
+							match = false;
+						}
+					}
+				});
+				if (match === true) {
+					filteredproducts.push(product);
+				}
+			});
+		}
+
+		if (filtersArray['limit']) {
+			filteredproducts = filteredproducts.slice(
+				0,
+				Number(filtersArray['limit'])
+			);
+		}
+
+		let data = filteredproducts;
+
+		if (data.length === 1 && single === true) {
+			return data[0];
+		}
+
+		return data;
+	} catch (error) {
+		return error;
 	}
-
-	return data;
 }
 
 export async function ServerComments(productID: number) {
