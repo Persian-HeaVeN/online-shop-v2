@@ -177,7 +177,7 @@ export default function EntryForm() {
 			<div className='w-full'>
 				<AnimatedComponent
 					classname={'w-full show-under sm'}
-					animation={window.innerWidth < 640 ? fadeInUp : fadeInLeft}
+					animation={( typeof window !== "undefined" && window.innerWidth < 640) ? fadeInUp : fadeInLeft}
 				>
 					<h1 className='w-full max-sm:text-center max-sm:text-3xl'>
 						Login or Register

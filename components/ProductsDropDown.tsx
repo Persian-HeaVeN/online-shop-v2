@@ -55,7 +55,12 @@ export default function ProductsDropDown(params: any) {
 			<Dropdown>
 				<DropdownTrigger>
 					<Button
-						isIconOnly={window.innerWidth <= 640 ? true : false}
+						isIconOnly={
+							typeof window !== 'undefined' &&
+							window.innerWidth <= 640
+								? true
+								: false
+						}
 						className='text-white pr-1.5'
 						color='secondary'
 						variant='bordered'
@@ -64,7 +69,10 @@ export default function ProductsDropDown(params: any) {
 							Products
 							<MoreIcon className='text-white' />
 						</p>
-						{window.innerWidth <= 640 && <AllIcon className='ms-2' />}
+						{typeof window !== 'undefined' &&
+							window.innerWidth <= 640 && (
+								<AllIcon className='ms-2' />
+							)}
 					</Button>
 				</DropdownTrigger>
 				<DropdownMenu
