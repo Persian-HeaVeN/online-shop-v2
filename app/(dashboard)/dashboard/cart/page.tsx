@@ -44,7 +44,7 @@ export default function CartPage() {
 			) : (
 				<div className='flex flex-col items-center justify-center w-full min-h-[63vh]'>
 					<CloseRounded style={{ fontSize: '10rem' }} />
-					<h1 className='text-white'>
+					<h1 className='text-white text-center'>
 						You Have not Added a Product to Your Cart yet !
 					</h1>
 				</div>

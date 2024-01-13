@@ -10,6 +10,7 @@ import AnimatedComponent from './AnimatedComponents';
 import {
 	fadeInDown,
 	fadeInLeft,
+	fadeInUp,
 	iphoneAnimation,
 } from '@/lib/framerTransitions';
 
@@ -169,23 +170,32 @@ export default function EntryForm() {
 	}
 
 	return (
-		<form onSubmit={submitHandler}>
+		<form
+			className='absolute top-[17rem] left-3 sm:relative sm:top-auto'
+			onSubmit={submitHandler}
+		>
 			<div className='w-full'>
-				<AnimatedComponent animation={fadeInLeft}>
-					<h1>Login or Register</h1>
+				<AnimatedComponent
+					classname={'w-full show-under sm'}
+					animation={window.innerWidth < 640 ? fadeInUp : fadeInLeft}
+				>
+					<h1 className='w-full max-sm:text-center max-sm:text-3xl'>
+						Login or Register
+					</h1>
 				</AnimatedComponent>
 			</div>
 
 			<input
 				ref={nameRef}
 				type='text'
-				className='transition-1s zero hidden'
+				className='transition-1s zero hidden max-w-[270px]'
 				placeholder='Name'
 			/>
 
 			<div className='w-full'>
 				<AnimatedComponent animation={iphoneAnimation}>
 					<input
+						className='max-w-[270px]'
 						type='email'
 						id='email_input'
 						placeholder='Email Address'
@@ -205,22 +215,25 @@ export default function EntryForm() {
 				<input
 					ref={passwordRef}
 					type='password'
-					className='w-1/2 transition-1s zero hidden'
+					className='w-1/2 transition-1s zero hidden max-w-[270px]'
 					placeholder='Password'
 				/>
 				<input
 					ref={confirmPasswordRef}
 					type='password'
-					className='w-1/2 transition-1s zero hidden'
+					className='w-1/2 transition-1s zero hidden max-w-[270px]'
 					placeholder='Confirm Password'
 				/>
 			</div>
 
-			<AnimatedComponent classname={'flex justify-center w-full'} animation={fadeInDown}>
+			<AnimatedComponent
+				classname={'flex justify-center w-full'}
+				animation={fadeInDown}
+			>
 				<button
 					type='submit'
 					disabled={formData.loading}
-					className='btn btn-primary flex items-center justify-center'
+					className='btn btn-primary flex items-center justify-center max-w-[270px]'
 				>
 					{formData.loading === true ? (
 						<ButtonLoader />

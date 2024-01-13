@@ -22,14 +22,14 @@ export default function Navbar() {
 						<SearchModal />
 					</div>
 					<div className='flex gap-2 justify-center w-1/3 items-center text-xl select-none'>
-						<p>Diamond</p>
+						<p className='show-in lg'>Diamond</p>
 						<Image
 							onClick={(e) => router.push('/')}
 							width={65}
 							src='/icon.png'
 							className='py-1 cursor-pointer'
 						/>
-						<p>Shop</p>
+						<p className='show-in lg'>Shop</p>
 					</div>
 					<div className='flex justify-end items-center w-1/3 gap-2 pe-2'>
 						{session?.user?.name}

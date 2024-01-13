@@ -27,7 +27,7 @@ export default function DashboardPage() {
 					Your BookMarks:
 				</h1>
 			</AnimatedComponent>
-			{ products.length > 0 ? (
+			{products.length > 0 ? (
 				<div className='card-list four'>
 					{products.map((item: any, index: number) => (
 						<Card
@@ -45,7 +45,9 @@ export default function DashboardPage() {
 			) : (
 				<div className='flex flex-col items-center justify-center w-full min-h-[63vh]'>
 					<CloseRounded style={{ fontSize: '10rem' }} />
-					<h1 className='text-white'>You Dont Have Any Bookmarks !</h1>
+					<h1 className='text-white text-center'>
+						You Dont Have Any Bookmarks !
+					</h1>
 				</div>
 			)}
 		</main>

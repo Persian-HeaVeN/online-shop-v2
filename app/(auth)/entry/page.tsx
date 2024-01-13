@@ -14,7 +14,7 @@ export default async function EntryPage() {
 
 	return (
 		<main className='flex w-full h-[88.3vh]'>
-			<div className='flex items-center w-2/3'>
+			<div className='flex items-center w-full sm:w-2/3 absolute sm:relative'>
 				<EntryForm />
 			</div>
 			<EntryDiamondLogo />

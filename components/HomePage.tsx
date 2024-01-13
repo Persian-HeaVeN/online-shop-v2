@@ -33,8 +33,8 @@ export default function HomePage() {
 					onClick={() => router.push('/products?off=true')}
 					className='card big'
 				>
-					<div className='flex card-inner secondary items-center px-4 py-1'>
-						<div className='flex justify-center text-center'>
+					<div className='flex justify-center show-in md card-inner secondary items-center px-4 py-1'>
+						<div className='flex justify-center text-center items-center'>
 							<div className='float-left'>
 								<PercentIcon
 									style={{ fontSize: '10rem' }}

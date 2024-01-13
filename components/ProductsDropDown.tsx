@@ -55,14 +55,16 @@ export default function ProductsDropDown(params: any) {
 			<Dropdown>
 				<DropdownTrigger>
 					<Button
+						isIconOnly={window.innerWidth <= 640 ? true : false}
 						className='text-white pr-1.5'
 						color='secondary'
 						variant='bordered'
 					>
-						<p>
+						<p className='show-in sm'>
 							Products
 							<MoreIcon className='text-white' />
 						</p>
+						{window.innerWidth <= 640 && <AllIcon className='ms-2' />}
 					</Button>
 				</DropdownTrigger>
 				<DropdownMenu

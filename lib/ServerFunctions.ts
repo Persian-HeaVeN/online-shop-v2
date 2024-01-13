@@ -146,7 +146,7 @@ export async function ServerProducts(filters: string, single = false) {
 					'content-type': 'application/json',
 				},
 				next: {
-					revalidate: 60 * 60,
+					revalidate: 60 * 60 * 24,
 				},
 			}
 		);

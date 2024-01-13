@@ -32,7 +32,7 @@ export default function SearchModal() {
 			<SearchIcon
 				onClick={onOpen}
 				style={{ fontSize: '2rem' }}
-				className='text-white icon-hover'
+				className='text-white icon-hover show-in md'
 			/>
 			<Modal
 				backdrop='blur'

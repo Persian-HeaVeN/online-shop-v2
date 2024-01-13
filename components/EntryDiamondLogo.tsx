@@ -7,8 +7,11 @@ import { fadeInRight } from '@/lib/framerTransitions';
 
 export default function EntryDiamondLogo() {
 	return (
-		<AnimatedComponent classname={"flex items-center justify-center w-1/3"} animation={fadeInRight}>
-			<div className='flex flex-col justify-center shadow-white shadow-xl rounded-3xl h-full'>
+		<AnimatedComponent
+			classname={'flex items-center justify-center w-full sm:w-1/3'}
+			animation={fadeInRight}
+		>
+			<div className='flex sm:items-center shadow-white shadow-xl rounded-3xl h-[125%] sm:h-full'>
 				<Link href='/'>
 					<DiamondRounded
 						className='text-secondary hover:text-white transition-1s hover:cursor-pointer'

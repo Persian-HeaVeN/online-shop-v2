@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 * {
 	padding: 0;
 	margin: 0;
@@ -53,7 +51,7 @@ form input {
 
 form h1 {
 	font-size: 2.6rem;
-	@apply font-extrabold text-white w-full text-start mb-12;
+	@apply font-extrabold text-white w-full text-start mb-8 sm:mb-12;
 }
 
 form button {
@@ -174,8 +172,8 @@ form button {
 
 .maxline-1 {
 	white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	line-height: 2rem;
 }
 
@@ -199,19 +197,19 @@ form button {
 }
 
 .card-list.two {
-	@apply grid-cols-2;
+	@apply grid-cols-1 md:grid-cols-2;
 }
 
 .card-list.three {
-	@apply grid-cols-3;
+	@apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3;
 }
 
 .card-list.four {
-	@apply grid-cols-4;
+	@apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
 }
 
 .card-list.five {
-	@apply grid-cols-5;
+	@apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5;
 }
 
 .circle {
@@ -241,3 +239,18 @@ form button {
 	align-items: center;
 }
 
+.only-under.sm {
+	@apply sm:hidden;
+}
+
+.show-in.sm {
+	@apply hidden sm:block;
+}
+
+.show-in.md {
+	@apply hidden md:flex;
+}
+
+.show-in.lg {
+	@apply hidden lg:flex;
+}
