@@ -21,13 +21,15 @@ import {
 	iphoneAnimation,
 } from '@/lib/framerTransitions';
 import AnimatedWidth from './AnimatedWidth';
-import { Component, ComponentElement, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ServerComments, getServerCartWithID } from '@/lib/ServerFunctions';
 import CommentsList from './CommentsList';
 import { calculateOffPrice } from '@/lib/calculateOff';
 import { useSession } from 'next-auth/react';
 import { addToCart, removeFromCart } from '@/lib/cartFunctions';
 import toast from 'react-hot-toast';
+import CommentSkeleton from './CommentSkeleton';
+import { isFavorite, toggleFavorite } from '@/lib/productFavorite';
 
 const categoryIcon: any = {
 	Laptop: <Laptop />,
@@ -38,9 +40,21 @@ const categoryIcon: any = {
 export default function ProductInfo(params: any) {
 	const product = params.product;
 	const [pcomments, setPcomments] = useState({});
+	const [commentLoading, setCommentLoading] = useState(true);
 	const [nowColor, setNowColor] = useState<string>(product.colors[0]);
 	const [buttonData, setButtonData] = useState<any>({});
 	const { data: session, update } = useSession();
+
+	const isSaved = isFavorite(Number(product.id), update, session);
+
+	function toggleSaveProduct(id: number) {
+		if (!session) {
+			toast.error('you must login first!');
+			return;
+		} else {
+			toggleFavorite(id, update, session);
+		}
+	}
 
 	async function getCartID() {
 		const data = await getServerCartWithID(
@@ -60,6 +74,7 @@ export default function ProductInfo(params: any) {
 		async function getProductComments() {
 			const productComments = await ServerComments(Number(product.id));
 			setPcomments(productComments);
+			setCommentLoading(false);
 		}
 		getProductComments();
 	}, []);
@@ -149,7 +164,25 @@ export default function ProductInfo(params: any) {
 					<div className='flex w-full mt-6'>
 						<AnimatedComponent animation={fadeInLeft}>
 							<div className='flex flex-col gap-1 w-1/12 items-center pt-8'>
-								<NotSavedIcon className='icon-hover text-[2rem]' />
+								{isSaved ? (
+									<SavedIcon
+										onClick={() =>
+											toggleSaveProduct(
+												Number(product.id)
+											)
+										}
+										className='icon-hover text-[2rem]'
+									/>
+								) : (
+									<NotSavedIcon
+										onClick={() =>
+											toggleSaveProduct(
+												Number(product.id)
+											)
+										}
+										className='icon-hover text-[2rem]'
+									/>
+								)}
 								<ShareIcon className='icon-hover text-[2rem]' />
 							</div>
 						</AnimatedComponent>
@@ -345,7 +378,15 @@ export default function ProductInfo(params: any) {
 			<AnimatedComponent animation={fadeInLeft}>
 				<h1 className='text-2xl my-8'>Comments:</h1>
 			</AnimatedComponent>
-			<CommentsList comments={pcomments} />
+			{commentLoading === true ? (
+				<div className='flex flex-col gap-4'>
+					{[1, 2, 3].map((n) => (
+						<CommentSkeleton key={n} />
+					))}
+				</div>
+			) : (
+				<CommentsList comments={pcomments} />
+			)}
 		</main>
 	);
 }

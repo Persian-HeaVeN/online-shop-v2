@@ -23,15 +23,16 @@ const CommentsList = ({ comments }: any) => {
 						comment={JSON.stringify(comments[commentID])}
 					/>
 				))}
-			{visibleComments < comments.length ? (
+			{(visibleComments < comments.length && comments.length > 0) && (
 				<div className='flex justify-center'>
 					<button onClick={showMoreComments}>Show More...</button>
 				</div>
-			) : (
+			)}
+			{(visibleComments >= comments.length && comments.length > 0) &&
 				<div className='flex justify-center'>
 					<button onClick={closeComments}>Close</button>
 				</div>
-			)}
+			}
 		</div>
 	);
 };

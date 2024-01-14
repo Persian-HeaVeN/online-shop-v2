@@ -288,7 +288,7 @@ export async function ServerComments(productID: number) {
 				'Content-Type': 'application/json',
 			},
 			next: {
-				revalidate: 0,
+				revalidate: 60 * 60 * 24,
 			},
 		}
 	);

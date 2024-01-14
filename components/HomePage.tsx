@@ -29,7 +29,7 @@ export default function HomePage() {
 
 	return (
 		<main className='flex flex-col w-full'>
-			<AnimatedComponent animation={fadeInRight}>
+			<AnimatedComponent animation={fadeInRight} classname={"mt-2"}>
 				<div
 					onClick={() => router.push('/products?off=true')}
 					className='card big'
@@ -73,7 +73,7 @@ export default function HomePage() {
 						</div>
 					</div>
 				</div>
-				<h1 className='text-center text-2xl font-semibold text-white my-5'>
+				<h1 className='text-center text-[5vw] sm:text-[4vw] md:text-[3vw] lg:text-[2.5vw] xl:text-[2vw] 2xl:text-[1.5vw] font-semibold text-white my-8'>
 					Looking For Apple Watch ?
 				</h1>
 			</AnimatedComponent>
@@ -99,7 +99,7 @@ export default function HomePage() {
 			</div>
 
 			<AnimatedComponent animation={fadeInRight}>
-				<h1 className='text-center text-2xl font-semibold text-white my-6'>
+				<h1 className='text-center text-[5vw] sm:text-[4vw] md:text-[3vw] lg:text-[2.5vw] xl:text-[2vw] 2xl:text-[1.5vw] font-semibold text-white my-8'>
 					Or a Laptop ?!
 				</h1>
 			</AnimatedComponent>
