@@ -8,4 +8,5 @@ export const filterParams = [
 	'id',
 	'category',
 	'off',
+	'text'
 ];

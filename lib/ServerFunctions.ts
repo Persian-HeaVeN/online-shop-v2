@@ -4,6 +4,8 @@ import Account from '@/models/accounts';
 import { filterParams } from '@/lib/filterParams';
 import bycrypt from 'bcryptjs';
 import { connectMongoDB } from './mongodb';
+import { calculateOffPrice } from './calculateOff';
+import { stringSimilarity } from 'string-similarity-js';
 
 function parseQueryString(
 	query: string
@@ -110,7 +112,10 @@ export async function ServerRegister(
 		if (newAccount) {
 			return { message: 'Account Created Successfully', status: true };
 		} else {
-			return { message: 'An error Occurred when Creating Account', status: false };
+			return {
+				message: 'An error Occurred when Creating Account',
+				status: false,
+			};
 		}
 	} catch (error: any) {
 		return { message: error.message, status: false };
@@ -164,22 +169,82 @@ export async function ServerProducts(filters: string, single = false) {
 				let match = true;
 
 				filterParams.forEach((filter: string) => {
-					if (filter === 'price') {
+					if (filter === 'text' && filtersArray[filter]) {
+						filtersArray[filter] = filtersArray[filter]
+							.toString()
+							.replace(/-/g, ' ');
+
+						console.log(
+							filtersArray[filter] + `, ${product['name']}`
+						);
+
+						if (
+							stringSimilarity(
+								filtersArray[filter] as string,
+								product['name'],
+								2,
+								false
+							) < 0.5
+						) {
+							if (
+								stringSimilarity(
+									filtersArray[filter] as string,
+									product['model'],
+									2,
+									false
+								) < 0.5
+							) {
+								if (
+									stringSimilarity(
+										filtersArray[filter] as string,
+										product['brand'],
+										2,
+										false
+									) < 0.5
+								) {
+									if (
+										stringSimilarity(
+											filtersArray[filter] as string,
+											product['category'],
+											2,
+											false
+										) < 0.5
+									) {
+										match = false;
+									}
+								}
+							}
+						}
+					} else if (filter === 'price' && filtersArray[filter]) {
+						const priceFilter = filtersArray[filter]
+							.toString()
+							.split('-');
+
 						if (
 							filtersArray[filter] &&
-							Number(product[filter]) >
-								<number>filtersArray[filter]
+							(Number(
+								calculateOffPrice(
+									product[filter],
+									product['off']
+								)
+							) > parseInt(priceFilter[1]) ||
+								Number(
+									calculateOffPrice(
+										product[filter],
+										product['off']
+									)
+								) < parseInt(priceFilter[0]))
 						) {
 							match = false;
 						}
-					} else if (filter === 'off') {
+					} else if (filter === 'off' && filtersArray[filter]) {
 						if (
 							filtersArray[filter] &&
 							Number(product[filter]) === 0
 						) {
 							match = false;
 						}
-					} else {
+					} else if (filtersArray[filter]) {
 						if (
 							filtersArray[filter] &&
 							product[filter].toString().toLowerCase() !==

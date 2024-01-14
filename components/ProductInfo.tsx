@@ -74,19 +74,50 @@ export default function ProductInfo(params: any) {
 
 	function addToCartHandler() {
 		if (!session) {
-			return toast.error("you must loggin first !")
+			return toast.error('you must loggin first !');
 		}
 		addToCart(Number(product.id), update, session, nowColor.toString());
 	}
 
 	function removeFromCartHandler() {
-		removeFromCart(Number(product.id), update, session, nowColor.toString());
+		removeFromCart(
+			Number(product.id),
+			update,
+			session,
+			nowColor.toString()
+		);
 	}
 
 	return (
-		<main className='hidden lg:flex lg:flex-col'>
+		<main className='flex flex-col'>
+			<AnimatedWidth>
+				<Breadcrumbs
+					className='max-lg:block hidden'
+					size='md'
+					style={{
+						maxHeight: '1.3rem',
+						width: 'fit-content',
+					}}
+				>
+					<BreadcrumbItem startContent={<HomeIcon />} href='/'>
+						Home
+					</BreadcrumbItem>
+					<BreadcrumbItem
+						startContent={<ProductIcon />}
+						href='/products'
+					>
+						Products
+					</BreadcrumbItem>
+					<BreadcrumbItem
+						startContent={categoryIcon[product.category]}
+					>
+						{product.category}
+					</BreadcrumbItem>
+				</Breadcrumbs>
+			</AnimatedWidth>
+
 			<div className='flex'>
-				<div className='flex flex-col w-5/12'>
+				<div className='hidden lg:flex lg:flex-col w-5/12'>
 					<AnimatedWidth>
 						<Breadcrumbs
 							size='md'
@@ -122,7 +153,7 @@ export default function ProductInfo(params: any) {
 								<ShareIcon className='icon-hover text-[2rem]' />
 							</div>
 						</AnimatedComponent>
-						<div className='flex items-center justify-center w-11/12'>
+						<div className='flex max-lg:hidden items-center justify-center w-11/12'>
 							<AnimatedComponent animation={fadeInDown}>
 								<Badge
 									content='New'
@@ -148,9 +179,9 @@ export default function ProductInfo(params: any) {
 					</div>
 				</div>
 
-				<div className='flex flex-col px-5 gap-2 pt-8 w-7/12'>
+				<div className='flex flex-col px-5 gap-2 pt-8 w-full lg:w-7/12'>
 					<AnimatedComponent animation={fadeInRight}>
-						<p className='text-3xl min-h-[4.5rem]'>
+						<p className='text-2xl lg:text-3xl text-center mb-2 min-h-[4.5rem]'>
 							{product.name}
 						</p>
 					</AnimatedComponent>
@@ -177,6 +208,40 @@ export default function ProductInfo(params: any) {
 							</p>
 						</AnimatedComponent>
 					</div>
+
+					<div className='flex w-full'>
+						<div className='hidden max-lg:flex items-center justify-center w-full'>
+							<AnimatedComponent animation={fadeInDown}>
+								<Badge
+									content='New'
+									size='lg'
+									shape='circle'
+									color='danger'
+									className='top-2'
+									style={{
+										display:
+											product.new === false
+												? 'none'
+												: 'block',
+									}}
+								>
+									<Image
+										width={340}
+										alt='Product Image'
+										src={`/images/products/${product.image}`}
+									/>
+								</Badge>
+							</AnimatedComponent>
+						</div>
+					</div>
+
+					<AnimatedComponent animation={fadeInLeft}>
+						<div className='flex gap-1 w-full justify-end'>
+							<NotSavedIcon className='icon-hover text-[2rem]' />
+							<ShareIcon className='icon-hover text-[2rem]' />
+						</div>
+					</AnimatedComponent>
+
 					<AnimatedComponent animation={iphoneAnimation}>
 						<p>
 							<span className='text-gray-400 me-1'>Brand:</span>{' '}
@@ -249,9 +314,21 @@ export default function ProductInfo(params: any) {
 							{Number(buttonData[nowColor]) &&
 							Number(buttonData[nowColor]) > 0 ? (
 								<div className='flex justify-center gap-3 w-full mt-8'>
-									<button onClick={removeFromCartHandler} className='btn btn-primary w-1/3'>Remove</button>
-									<p className='text-2xl text-center w-1/3'>{buttonData[nowColor]}</p>
-									<button onClick={addToCartHandler} className='btn btn-primary w-1/3'>Add More</button>
+									<button
+										onClick={removeFromCartHandler}
+										className='btn btn-primary w-1/3'
+									>
+										Remove
+									</button>
+									<p className='text-2xl text-center w-1/3'>
+										{buttonData[nowColor]}
+									</p>
+									<button
+										onClick={addToCartHandler}
+										className='btn btn-primary w-1/3'
+									>
+										Add More
+									</button>
 								</div>
 							) : (
 								<button

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ButtonLoader from './ButtonLoader';
 import toast from 'react-hot-toast';
 import { signIn } from 'next-auth/react';
@@ -16,7 +16,7 @@ import {
 
 export default function EntryForm() {
 	const router = useRouter();
-
+	const [isMounted, setIsMounted] = useState(false);
 	const [formData, setFormData] = useState({
 		loading: false,
 		button: 'Continue',
@@ -27,6 +27,16 @@ export default function EntryForm() {
 	const emailRef = useRef<HTMLInputElement>(null);
 	const passwordRef = useRef<HTMLInputElement>(null);
 	const confirmPasswordRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		setIsMounted(true);
+	}, []);
+
+	const animationStyle = isMounted
+		? typeof window !== 'undefined' && window.innerWidth < 640
+			? fadeInUp
+			: fadeInLeft
+		: {};
 
 	async function submitHandler(event: any) {
 		event.preventDefault();
@@ -177,7 +187,7 @@ export default function EntryForm() {
 			<div className='w-full'>
 				<AnimatedComponent
 					classname={'w-full show-under sm'}
-					animation={( typeof window !== "undefined" && window.innerWidth < 640) ? fadeInUp : fadeInLeft}
+					animation={animationStyle}
 				>
 					<h1 className='w-full max-sm:text-center max-sm:text-3xl'>
 						Login or Register
@@ -188,14 +198,14 @@ export default function EntryForm() {
 			<input
 				ref={nameRef}
 				type='text'
-				className='transition-1s zero hidden max-w-[270px]'
+				className='transition-1s zero hidden max-sm:max-w-[270px]'
 				placeholder='Name'
 			/>
 
 			<div className='w-full'>
 				<AnimatedComponent animation={iphoneAnimation}>
 					<input
-						className='max-w-[270px]'
+						className='max-sm:max-w-[270px]'
 						type='email'
 						id='email_input'
 						placeholder='Email Address'
@@ -215,13 +225,13 @@ export default function EntryForm() {
 				<input
 					ref={passwordRef}
 					type='password'
-					className='w-1/2 transition-1s zero hidden max-w-[270px]'
+					className='w-1/2 transition-1s zero hidden max-sm:max-w-[270px]'
 					placeholder='Password'
 				/>
 				<input
 					ref={confirmPasswordRef}
 					type='password'
-					className='w-1/2 transition-1s zero hidden max-w-[270px]'
+					className='w-1/2 transition-1s zero hidden max-sm:max-w-[270px]'
 					placeholder='Confirm Password'
 				/>
 			</div>
@@ -233,7 +243,7 @@ export default function EntryForm() {
 				<button
 					type='submit'
 					disabled={formData.loading}
-					className='btn btn-primary flex items-center justify-center max-w-[270px]'
+					className='btn btn-primary flex items-center justify-center max-sm:max-w-[270px]'
 				>
 					{formData.loading === true ? (
 						<ButtonLoader />

@@ -45,7 +45,7 @@ export default function Card(params: any) {
 					display: params.off ? 'block' : 'none',
 				}}
 			>
-				<div className='card'>
+				<div className='card' onClick={seeProductFunc}>
 					<div className='card-inner'>
 						<div className='top'>
 							<img src={params.imagePath} alt='product' />
