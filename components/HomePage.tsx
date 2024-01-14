@@ -6,6 +6,7 @@ import { ServerProducts } from '@/lib/ServerFunctions';
 import { useEffect, useState } from 'react';
 import { fadeInRight } from '@/lib/framerTransitions';
 import AnimatedComponent from './AnimatedComponents';
+import CardSkeleton from './CardSkeleton';
 
 export default function HomePage() {
 	const router = useRouter();
@@ -78,20 +79,23 @@ export default function HomePage() {
 			</AnimatedComponent>
 
 			<div className='card-list two'>
-				{products.appleWatches &&
-					Object.keys(products.appleWatches).map((key: any) => {
-						return (
-							<Card
-								key={key}
-								colors={products.appleWatches[key]['colors']}
-								off={products.appleWatches[key]['off']}
-								imagePath={`/images/products${products.appleWatches[key]['image']}`}
-								name={products.appleWatches[key]['name']}
-								price={products.appleWatches[key]['price']}
-								id={products.appleWatches[key]['id']}
-							/>
-						);
-					})}
+				{products.appleWatches
+					? Object.keys(products.appleWatches).map((key: any) => {
+							return (
+								<Card
+									key={key}
+									colors={
+										products.appleWatches[key]['colors']
+									}
+									off={products.appleWatches[key]['off']}
+									imagePath={`/images/products${products.appleWatches[key]['image']}`}
+									name={products.appleWatches[key]['name']}
+									price={products.appleWatches[key]['price']}
+									id={products.appleWatches[key]['id']}
+								/>
+							);
+					  })
+					: [1, 2].map((n) => <CardSkeleton key={n} />)}
 			</div>
 
 			<AnimatedComponent animation={fadeInRight}>
@@ -101,20 +105,21 @@ export default function HomePage() {
 			</AnimatedComponent>
 
 			<div className='card-list four'>
-				{products.laptops &&
-					Object.keys(products.laptops).map((key: any) => {
-						return (
-							<Card
-								key={key}
-								colors={products.laptops[key]['colors']}
-								off={products.laptops[key]['off']}
-								imagePath={`/images/products${products.laptops[key]['image']}`}
-								name={products.laptops[key]['name']}
-								price={products.laptops[key]['price']}
-								id={products.laptops[key]['id']}
-							/>
-						);
-					})}
+				{products.laptops
+					? Object.keys(products.laptops).map((key: any) => {
+							return (
+								<Card
+									key={key}
+									colors={products.laptops[key]['colors']}
+									off={products.laptops[key]['off']}
+									imagePath={`/images/products${products.laptops[key]['image']}`}
+									name={products.laptops[key]['name']}
+									price={products.laptops[key]['price']}
+									id={products.laptops[key]['id']}
+								/>
+							);
+					  })
+					: [1, 2, 3, 4].map((n) => <CardSkeleton key={n} />)}
 			</div>
 		</main>
 	);

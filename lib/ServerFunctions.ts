@@ -174,10 +174,6 @@ export async function ServerProducts(filters: string, single = false) {
 							.toString()
 							.replace(/-/g, ' ');
 
-						console.log(
-							filtersArray[filter] + `, ${product['name']}`
-						);
-
 						if (
 							stringSimilarity(
 								filtersArray[filter] as string,
