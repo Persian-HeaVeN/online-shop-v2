@@ -8,12 +8,18 @@ import {
 	LockRounded as SecurityIcon,
 	HomeRounded as AdressIcon,
 	SentimentSatisfiedAltRounded as ProfileIcon,
+	PersonRounded as MainIcon,
 } from '@mui/icons-material';
 import { usePathname } from 'next/navigation';
 
 export default function DashboardSideBar() {
-    const pathname = usePathname()
+	const pathname = usePathname();
 	const sideItems = [
+		{
+			text: 'Main',
+			link: '/dashboard/control',
+			icon: <MainIcon />,
+		},
 		{
 			text: 'Profile',
 			link: '/dashboard/control/profile',
@@ -42,14 +48,12 @@ export default function DashboardSideBar() {
 	];
 	return (
 		<AnimatedComponent classname={'w-full h-full'} animation={fadeInLeft}>
-			<div className='flex flex-col items-center gap-3 px-2.5 pt-3 w-full h-full bars-shadow border-1.5 rounded-2xl'>
+			<div className='flex flex-col items-center gap-2 px-2.5 pt-3 w-full h-full bars-shadow border-1.5 rounded-2xl'>
 				{sideItems.map((item) => (
 					<Link
 						href={item.link}
 						className={`side-item ${
-							item.link === pathname
-								? 'bg-slate-600'
-								: ''
+							item.link === pathname ? 'bg-slate-600' : ''
 						}`}
 					>
 						{item.icon} <p>{item.text}</p>
