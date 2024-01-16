@@ -23,7 +23,7 @@ export default function UserDropDown() {
 	const { data: session } = useSession();
 	const loggedInButtons = [
 		{
-			key: 'dashboard',
+			key: 'dashboard/control',
 			logo: <DashboardIcon />,
 			label: 'Dashboard',
 			color: 'default',

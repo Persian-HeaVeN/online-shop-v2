@@ -54,7 +54,6 @@ export const authOptions = {
 			if (user) {
 				return {
 					...token,
-					authenticated: user.authenticated,
 					cart: user.cart,
 					favorites: user.favorites,
 					personalinfo: user.personalinfo,
@@ -69,7 +68,6 @@ export const authOptions = {
 				...session,
 				user: {
 					...session.user,
-					authenticated: token.authenticated,
 					cart: token.cart,
 					favorites: token.favorites,
 					personalinfo: token.personalinfo,

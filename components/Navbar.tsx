@@ -14,7 +14,7 @@ export default function Navbar() {
 
 	return (
 		<motion.div initial='initial' animate='animate' variants={fadeInUp}>
-			<nav className='flex items-center navbar-shadow w-full border-1.5 rounded-2xl px-2 shadow-lg mb-6'>
+			<nav className='flex items-center bars-shadow w-full border-1.5 rounded-2xl px-2 shadow-lg mb-6'>
 				<div className='flex gap-2 justify-start items-center ps-2 w-1/3'>
 					<ProductsDropDown />
 					<SearchModal />

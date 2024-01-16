@@ -51,7 +51,7 @@ export default function Card(params: any) {
 							<img src={params.imagePath} alt='product' />
 						</div>
 						<div className='bottom'>
-							<h1 className='maxline-1'>{params.name}</h1>
+							<h1 className='line-clamp-1'>{params.name}</h1>
 							<p className='flex gap-1 items-center scale-75'>
 								{params.colors
 									.slice(0, 3)

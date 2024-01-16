@@ -96,19 +96,19 @@ form button {
 }
 
 @media (min-width: 640px) {
-    .card {
+	.card {
 		width: 40vw;
 	}
 }
 
 @media (min-width: 768px) {
-    .card {
+	.card {
 		width: 28vw;
 	}
 }
 
 @media (min-width: 1024px) {
-    .card {
+	.card {
 		width: 20vw;
 	}
 }
@@ -188,23 +188,16 @@ form button {
 	margin-top: 0.3rem;
 }
 
-.maxline-1 {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	line-height: 2rem;
-}
-
-.navbar-shadow {
+.bars-shadow {
 	border-color: white;
 	box-shadow: 0px 0px 10px 5px #ffffff40;
 	transition: all 0.3s;
 }
 
-.navbar-shadow:hover {
-	border-color: #fee715;
-	box-shadow: 0px 0px 10px 5px #fee71540;
+.bars-shadow:hover {
+	box-shadow: 0px 0px 10px 10px #ffffff40;
 }
+
 
 .card-list {
 	@apply grid gap-10 place-items-center h-auto w-full;
@@ -271,4 +264,20 @@ form button {
 
 .show-in.lg {
 	@apply hidden lg:flex;
+}
+
+.side-item {
+	@apply flex justify-between ps-1 transition-all w-full rounded-lg py-1.5;
+}
+
+.side-item p {
+	@apply w-full ms-2;
+}
+
+.side-item:hover {
+	@apply bg-slate-800;
+}
+
+.side-item:active {
+	@apply bg-slate-600;
 }
