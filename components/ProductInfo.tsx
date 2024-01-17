@@ -162,30 +162,35 @@ export default function ProductInfo(params: any) {
 					</AnimatedWidth>
 
 					<div className='flex w-full mt-6'>
-						<AnimatedComponent animation={fadeInLeft}>
-							<div className='flex flex-col gap-1 w-1/12 items-center pt-8'>
-								{isSaved ? (
-									<SavedIcon
-										onClick={() =>
-											toggleSaveProduct(
-												Number(product.id)
-											)
-										}
-										className='icon-hover text-[2rem]'
-									/>
-								) : (
-									<NotSavedIcon
-										onClick={() =>
-											toggleSaveProduct(
-												Number(product.id)
-											)
-										}
-										className='icon-hover text-[2rem]'
-									/>
-								)}
-								<ShareIcon className='icon-hover text-[2rem]' />
-							</div>
+						<AnimatedComponent
+							classname={
+								'flex flex-col gap-1 w-1/12 items-center pt-8'
+							}
+							animation={fadeInLeft}
+						>
+							{isSaved ? (
+								<SavedIcon
+									onClick={() =>
+										toggleSaveProduct(Number(product.id))
+									}
+									className='icon-hover'
+									style={{ fontSize: '2rem' }}
+								/>
+							) : (
+								<NotSavedIcon
+									onClick={() =>
+										toggleSaveProduct(Number(product.id))
+									}
+									className='icon-hover'
+									style={{ fontSize: '2rem' }}
+								/>
+							)}
+							<ShareIcon
+								className='icon-hover'
+								style={{ fontSize: '2rem' }}
+							/>
 						</AnimatedComponent>
+
 						<div className='flex max-lg:hidden items-center justify-center w-11/12'>
 							<AnimatedComponent animation={fadeInDown}>
 								<Badge
@@ -268,28 +273,32 @@ export default function ProductInfo(params: any) {
 						</div>
 					</div>
 
-					<AnimatedComponent classname={"lg:hidden"} animation={fadeInLeft}>
+					<AnimatedComponent
+						classname={'lg:hidden'}
+						animation={fadeInLeft}
+					>
 						<div className='flex gap-1 w-full justify-end'>
-						{isSaved ? (
-									<SavedIcon
-										onClick={() =>
-											toggleSaveProduct(
-												Number(product.id)
-											)
-										}
-										className='icon-hover text-[2rem]'
-									/>
-								) : (
-									<NotSavedIcon
-										onClick={() =>
-											toggleSaveProduct(
-												Number(product.id)
-											)
-										}
-										className='icon-hover text-[2rem]'
-									/>
-								)}
-							<ShareIcon className='icon-hover text-[2rem]' />
+							{isSaved ? (
+								<SavedIcon
+									onClick={() =>
+										toggleSaveProduct(Number(product.id))
+									}
+									className='icon-hover'
+									style={{ fontSize: '2rem' }}
+								/>
+							) : (
+								<NotSavedIcon
+									onClick={() =>
+										toggleSaveProduct(Number(product.id))
+									}
+									className='icon-hover'
+									style={{ fontSize: '2rem' }}
+								/>
+							)}
+							<ShareIcon
+								className='icon-hover'
+								style={{ fontSize: '2rem' }}
+							/>
 						</div>
 					</AnimatedComponent>
 
