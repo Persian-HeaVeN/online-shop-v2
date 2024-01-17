@@ -23,8 +23,8 @@ export default function ProfilePage() {
 		: '/images/profile/0.png';
 
 	return (
-		<main className='flex flex-col ps-10 gap-12 w-full'>
-			<div className='flex items-center gap-5 w-full'>
+		<main className='flex flex-col md:ps-10 gap-12 w-full'>
+			<div className='flex max-md:flex-col items-center gap-5 w-full'>
 				<h1>Your Current Profile Picture:</h1>
 				<Image
 					width={125}

@@ -9,8 +9,8 @@ export default function DashboardControlPage() {
 		? `/images/profile/${session.user.siteinfo.profile}.png`
 		: '/images/profile/0.png';
 	return (
-		<main className='flex ps-14 w-full'>
-			<div className='flex flex-col gap-1'>
+		<main className='flex md:ps-14 w-full'>
+			<div className='hidden md:flex md:flex-col gap-1'>
 				<Image
 					width={200}
 					src={profileImageSrc}
@@ -24,7 +24,21 @@ export default function DashboardControlPage() {
 					edit
 				</Link>
 			</div>
-			<div className='flex flex-col gap-1 ms-8 pt-2 text-gray-400 text-xl'>
+			<div className='flex flex-col max-md:text-center max-md:mx-auto max-md:items-center gap-1 ms-8 pt-2 text-gray-400 text-xl'>
+				<div className='flex flex-col justify-center md:hidden'>
+					<Image
+						width={200}
+						src={profileImageSrc}
+						radius='full'
+						className='profile-image'
+					/>
+					<Link
+						href={'/dashboard/control/profile'}
+						className='hover:underline text-secondary text-center w-fit self-center cursor-pointer'
+					>
+						edit
+					</Link>
+				</div>
 				<h1 className='text-4xl text-white'>
 					{session?.user?.name || 'Username'}
 				</h1>
@@ -32,11 +46,12 @@ export default function DashboardControlPage() {
 					<span className='text-white'>Wallet Balance</span>: 0$
 				</p>
 				<p>
-					<span className='text-white'>Email:</span> {session?.user?.email || "example@mail.com"}
+					<span className='text-white'>Email:</span>{' '}
+					{session?.user?.email || 'example@mail.com'}
 				</p>
 				<p className='line-clamp-2'>
 					<span className='text-white'>Address:</span> Iran, Gorgan,
-					Nahar Khoran, Edalat 98/1, Aryan Apartment
+					Nahar Khoran
 				</p>
 			</div>
 		</main>

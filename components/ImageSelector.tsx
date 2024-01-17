@@ -49,7 +49,7 @@ function ImageCarouselComponent(
 	}
 
 	const getClassName = (index: number) => {
-		if (index === currentIndex) return 'scale-125 mx-4 border-secondary';
+		if (index === currentIndex) return 'scale-125 lg:mx-4 max-md:scale-150 border-secondary';
 		if (
 			(currentIndex + 1) % images.length === index ||
 			(currentIndex - 1 + images.length) % images.length === index
@@ -61,11 +61,11 @@ function ImageCarouselComponent(
 	return (
 		<div className='flex justify-center items-center h-[125px] w-full'>
 			<LeftIcon
-				className='icon-hover'
+				className='icon-hover max-md:w-1/12'
 				onClick={() => changeCurrentProfile('-')}
 				style={{ fontSize: '3rem' }}
 			/>
-			<div className='flex items-center justify-center space-x-4 h-full w-6/12 overflow-x-auto'>
+			<div className='flex items-center justify-center overflow-hidden gap-6 md:space-x-4 h-full w-10/12 lg:w-6/12 overflow-x-auto'>
 				{images.map((image, index) => (
 					<Image
 						key={image.id}
@@ -80,7 +80,7 @@ function ImageCarouselComponent(
 				))}
 			</div>
 			<RightIcon
-				className='icon-hover'
+				className='icon-hover max-md:w-1/12'
 				onClick={() => changeCurrentProfile('+')}
 				style={{ fontSize: '3rem' }}
 			/>
