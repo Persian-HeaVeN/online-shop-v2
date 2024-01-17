@@ -281,7 +281,7 @@ export async function ServerProducts(filters: string, single = false) {
 }
 
 export async function ServerComments(productID: number) {
-	const res = await fetch(
+	/* const res = await fetch(
 		process.env.NEXTAUTH_URL +
 			'/api/comments?apikey=' +
 			process.env.SITE_API_KEY +
@@ -296,10 +296,40 @@ export async function ServerComments(productID: number) {
 				revalidate: 60 * 60 * 24,
 			},
 		}
-	);
-	const data = await res.json();
+	); */
 
-	return data;
+	try {
+		await connectMongoDB();
+
+		const res = await fetch(
+			'https://projects-datas.onrender.com/online_shop_v2',
+			{
+				method: 'GET',
+				headers: {
+					'content-type': 'application/json',
+				},
+				next: {
+					revalidate: 60 * 60,
+				},
+			}
+		);
+
+		let comments = await res.json();
+
+		comments = comments.comments;
+
+		const filteredComments: any = [];
+
+		comments.forEach((comment: any) => {
+			if (Number(comment.productID) === Number(productID)) {
+				filteredComments.push(comment);
+			}
+		});
+
+		return filteredComments;
+	} catch (error) {
+		return error;
+	}
 }
 
 export async function getServerBookMarks(email: string) {
