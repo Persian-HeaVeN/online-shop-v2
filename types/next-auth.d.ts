@@ -7,7 +7,10 @@ interface ExtendedUser {
 	authenticated?: boolean;
 	cart?: [];
 	personalinfo?: {};
-	siteinfo?: {};
+	siteinfo?: {
+		profile: number;
+		wallet: number,
+	};
 }
 
 declare module 'next-auth' {

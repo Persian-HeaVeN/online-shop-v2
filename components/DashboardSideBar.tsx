@@ -4,7 +4,7 @@ import AnimatedComponent from './AnimatedComponents';
 import { fadeInLeft } from '@/lib/framerTransitions';
 import {
 	AccountBoxRounded as PersonalIcon,
-	AccountBalanceRounded as WalletIcon,
+	AccountBalanceWalletRounded as WalletIcon,
 	LockRounded as SecurityIcon,
 	HomeRounded as AdressIcon,
 	SentimentSatisfiedAltRounded as ProfileIcon,
@@ -41,7 +41,7 @@ export default function DashboardSideBar() {
 			icon: <AdressIcon />,
 		},
 		{
-			text: 'Personal Infos',
+			text: 'Personal infos',
 			link: '/dashboard/control/personalinfo',
 			icon: <PersonalIcon />,
 		},
@@ -49,8 +49,9 @@ export default function DashboardSideBar() {
 	return (
 		<AnimatedComponent classname={'w-full h-full'} animation={fadeInLeft}>
 			<div className='flex flex-col items-center gap-2 px-2.5 pt-3 w-full h-full bars-shadow border-1.5 rounded-2xl'>
-				{sideItems.map((item) => (
+				{sideItems.map((item, index) => (
 					<Link
+						key={index}
 						href={item.link}
 						className={`side-item ${
 							item.link === pathname ? 'bg-slate-600' : ''

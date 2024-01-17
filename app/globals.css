@@ -198,7 +198,6 @@ form button {
 	box-shadow: 0px 0px 10px 10px #ffffff40;
 }
 
-
 .card-list {
 	@apply grid gap-10 place-items-center h-auto w-full;
 }
@@ -280,4 +279,8 @@ form button {
 
 .side-item:active {
 	@apply bg-slate-600;
+}
+
+.profile-image {
+	@apply select-none bg-gray-400 border-white border-4;
 }

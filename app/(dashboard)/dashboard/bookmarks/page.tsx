@@ -30,7 +30,7 @@ export default function DashboardPage() {
 					Your BookMarks:
 				</h1>
 			</AnimatedComponent>
-			{products.length > 0 ? (
+			{products.length > 0 && (
 				<div className='card-list four'>
 					{products.map((item: any, index: number) => (
 						<Card
@@ -45,13 +45,17 @@ export default function DashboardPage() {
 						/>
 					))}
 				</div>
-			) : (
+			)}
+
+			{isLoading === true && (
 				<div className='card-list three'>
-					{[1, 2, 3, 4, 5, 6].map((n) => <CardSkeleton key={n} />)}
+					{[1, 2, 3, 4, 5, 6].map((n) => (
+						<CardSkeleton key={n} />
+					))}
 				</div>
 			)}
 
-			{(isLoading === false && products.length === 0) && (
+			{isLoading === false && products.length === 0 && (
 				<div className='flex flex-col items-center justify-center w-full min-h-[63vh]'>
 					<CloseRounded style={{ fontSize: '10rem' }} />
 					<h1 className='text-white text-center'>

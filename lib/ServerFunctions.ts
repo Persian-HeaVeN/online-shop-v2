@@ -107,6 +107,11 @@ export async function ServerRegister(
 			name,
 			password: hashedPassword,
 			email,
+			siteinfo: { profile: 1, wallet: 0 },
+			personalinfo: {
+				addresses: [],
+				mainaddress: -1,
+			},
 		});
 
 		if (newAccount) {
