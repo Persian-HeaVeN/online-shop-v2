@@ -268,9 +268,27 @@ export default function ProductInfo(params: any) {
 						</div>
 					</div>
 
-					<AnimatedComponent animation={fadeInLeft}>
+					<AnimatedComponent classname={"lg:hidden"} animation={fadeInLeft}>
 						<div className='flex gap-1 w-full justify-end'>
-							<NotSavedIcon className='icon-hover text-[2rem]' />
+						{isSaved ? (
+									<SavedIcon
+										onClick={() =>
+											toggleSaveProduct(
+												Number(product.id)
+											)
+										}
+										className='icon-hover text-[2rem]'
+									/>
+								) : (
+									<NotSavedIcon
+										onClick={() =>
+											toggleSaveProduct(
+												Number(product.id)
+											)
+										}
+										className='icon-hover text-[2rem]'
+									/>
+								)}
 							<ShareIcon className='icon-hover text-[2rem]' />
 						</div>
 					</AnimatedComponent>
